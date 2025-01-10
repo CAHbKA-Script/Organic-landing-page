@@ -1,6 +1,7 @@
 :root {
+    --header-bgc: rgba(240, 240, 240, .95);
     --float-icon-back: #274C5B;
-    --background: #f1f1f1;
+    --background: #e8e8e8;
     --border-color: #D4D4D4;
     --trolley-color: #274C5B;
     --text-color: #274C5B;
@@ -10,6 +11,7 @@
     --special-text-color: #7EB693;
     --offer-section-back: #274C5B;
     --button-color: #EFD372;
+    --button-hover-bgc: #42788c;
     --second-button-color: #274C5B;
     --arrow-back: #335B6B;
     --arrow-color: #ffffff;
@@ -20,6 +22,7 @@
     --price-color: #B8B8B8;
     --second-price-color: #274C5B;
     --social-back: #EFF6F1;
+    --social-hover-bgc: #c9f2d4;
     --food-bgc: #EFF6F1;
 }
 
@@ -88,6 +91,12 @@ h5 {
     padding: 22px 9px 22px 33px;
     background-color: var(--button-color);
     border-radius: 16px;
+    transition: all .3s ease;
+}
+
+.button:hover {
+    background-color: var(--hover-text-color);
+    color: #fff;
 }
 
 .button-blue {
@@ -151,6 +160,17 @@ h5 {
     padding: 130px 30px;
 }
 
+.main {
+    padding-top: 150px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--header-bgc);
+}
+
 .header > .container {
     display: flex;
     justify-content: space-between;
@@ -193,6 +213,10 @@ h5 {
     font-size: 17px;
 }
 
+.header__order:hover .trolley {
+    background-color: var(--hover-text-color);
+}
+
 .trolley {
     width: 56px;
     height: 56px;
@@ -201,6 +225,7 @@ h5 {
     text-align: center;
     line-height: 70px;
     vertical-align: middle;
+    transition: background-color .4s ease;
 }
 
 .welcome {  
@@ -222,6 +247,12 @@ h5 {
     padding: 105px 346px 105px 55px;
     background-position: right;
     border-radius: 30px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.natural__item:hover {
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .natural__item:nth-child(1) {
@@ -334,6 +365,11 @@ h5 {
     background-color: var(--card-back);
     border-radius: 30px;
     max-width: 447px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.products__item:hover {
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .products__item > span {
@@ -451,6 +487,10 @@ h5 {
     background-color: var(--offer-section-back);
 }
 
+.offer .products__item:hover {
+    box-shadow: 1px 4px 15px rgb(175, 175, 175, .7)
+}
+
 .offer__info-text {
     display: flex;
     justify-content: space-between;
@@ -523,6 +563,8 @@ h5 {
 
 .food__item {
     position: relative;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .food__item h5 {
@@ -533,6 +575,17 @@ h5 {
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+    z-index: 2;
+}
+
+.food__img img {
+    transition: all .4s ease;
+    z-index: 1;
+    display: block;
+}
+
+.food__item:hover img {
+    transform: scale(1.1);
 }
 
 .subscribe > .container {
@@ -565,6 +618,7 @@ h5 {
     border-radius: 16px;
     border: 0;
     font-size: 18px;
+    line-height: 28px;
     color: var(--text-color);
 }
 
@@ -577,11 +631,20 @@ h5 {
 }
 
 .footer > .container {
-    padding: 55px 30px;
+    padding: 55px 30px 0px 30px;
 }
 
 .footer__content {
     display: flex;
+    margin-bottom: 80px;
+}
+
+.footer__content a {
+    transition: color .3s ease;
+}
+
+.footer__content a:not(.footer__link):hover {
+    color: var(--hover-text-color);
 }
 
 .footer__content h4 {
@@ -599,13 +662,75 @@ h5 {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+    font-family: "Open Sans";
 }
 
 .footer__contact {
     text-align: right;
+    border-right: 2px solid var(--social-back);
+    padding-bottom: 40px;
+}
+
+.footer__contact ul {
+    margin-top: 34px;
+}
+
+.footer__contact ul > li:not(:first-child) {
+    margin-top: 39px;
+}
+
+.footer__contact li span {
+    font-weight: bold;
 }
 
 .footer__social {
     flex-basis: 50%;
     text-align: center;
+}
+
+.footer__link {
+    justify-content: center;
+}
+
+.footer__social p {
+    margin: 44px auto 50px auto;
+    max-width: 567px;
+}
+
+.footer__social-link {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer__social-link a {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--social-back);
+    position: relative;
+    transition: background-color .3s ease-in-out;
+}
+
+.footer__social-link a:hover {
+    background-color: var(--social-hover-bgc);
+}
+
+.footer__social-link .img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.footer__pages {
+    border-left: 2px solid var(--social-back);
+}
+
+.footer__pages ul {
+    margin-top: 20px;
+}
+
+.footer__pages ul > li:not(:first-child) {
+    margin-top: 24px;
 }
