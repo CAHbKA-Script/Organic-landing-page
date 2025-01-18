@@ -198,6 +198,7 @@ h5 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    transition: all .4s ease;
 }
 
 .header__menu input {
@@ -773,4 +774,9 @@ h5 {
 
 .footer__pages ul > li:not(:first-child) {
     margin-top: 24px;
+}
+
+
+.footer__map iframe {
+    transition: height 0.3s ease-in-out
 }
